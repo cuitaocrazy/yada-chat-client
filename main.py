@@ -7,10 +7,11 @@ recorder = AudioRecorder()
 
 history = []
 while True:
+    print("开始录音...")
     wav_base64 = recorder.start_recording()
-    print("got a wav")
+    print("请求...")
     response = requests.post(
-        "http://localhost:35000/combo",
+        "http://124.126.140.93:35000/combo",
         data=json.dumps({"wav": wav_base64, "history": history}),
         headers={"Content-Type": "application/json"},
     )

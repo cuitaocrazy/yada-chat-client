@@ -41,7 +41,7 @@ class AudioRecorder:
         # print("开始录音...")
         while True:
             # 读取音频数据
-            data = self.stream.read(self.CHUNK)
+            data = self.stream.read(self.CHUNK, exception_on_overflow=False)
             is_speech = self.vad.is_speech(data, self.RATE)
 
             if is_speech:
